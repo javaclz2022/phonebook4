@@ -35,7 +35,6 @@ public class PhoneController {
 		// Service를 통해서 personList(주소)을 가져온다
 		// PhoneService phoneService = new PhoneService() X;
 		List<PersonVo> personList = phoneService.getPersonList();
-		System.out.println(personList);
 
 		// ds 데이터보내기 -->request attribute에 넣는다
 		model.addAttribute("personList", personList);
@@ -43,6 +42,8 @@ public class PhoneController {
 		return "list";
 
 	}
+	
+	
 
 	// 전화번호 등록 폼
 	@RequestMapping(value = "/writeForm", method = { RequestMethod.GET, RequestMethod.POST })
@@ -52,10 +53,10 @@ public class PhoneController {
 		return "writeForm";
 	}
 
+	
 	// 전화번호 등록(@ModelAttribute 사용)
 	@RequestMapping(value = "/write", method = { RequestMethod.GET, RequestMethod.POST })
 	public String write(@ModelAttribute PersonVo personVo) {
-
 		System.out.println("PhoneController>write()");
 
 		// Service를 통해서 저장한다
@@ -64,6 +65,15 @@ public class PhoneController {
 		// 리다이렉트
 		return "redirect:/list";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 전화번호 등록(파라미터 사용)
 	@RequestMapping(value="/write2", method={RequestMethod.GET, RequestMethod.POST})
