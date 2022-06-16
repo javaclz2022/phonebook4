@@ -20,7 +20,7 @@ public class PhoneDao {
 		System.out.println("PhoneDao>getPersonList()");
 		
 		List<PersonVo> personList  = sqlSession.selectList("phonebook.selectList");
-		
+		System.out.println(personList);
 		return personList;
 	}
 	
