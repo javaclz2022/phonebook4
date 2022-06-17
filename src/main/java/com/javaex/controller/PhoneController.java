@@ -156,17 +156,14 @@ public class PhoneController {
 	
 	// 전화번호 수정폼2
 	@RequestMapping(value="/updateForm2", method= {RequestMethod.GET, RequestMethod.POST})
-	public String updateForm2(@RequestParam("no") int no) {
+	public String updateForm2(Model model, @RequestParam("no") int no) {
 		System.out.println("PhoneController>updateForm2()");
 		
 		Map<String, Object> pMap = phoneService.getPerson2(no);
-		System.out.println(pMap);
 		
+		model.addAttribute("pMap",  pMap);
 		
-		String name = (String)pMap.get("NAME");
-		System.out.println(name);
-		
-		return "";
+		return "updateForm2";
 	}
 	
 	
